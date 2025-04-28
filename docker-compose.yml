@@ -1,4 +1,3 @@
-
 services:
   db:
     image: postgres:13
@@ -8,6 +7,8 @@ services:
       POSTGRES_PASSWORD: scholl_password
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # Agregado para exponer el puerto 5432 de PostgreSQL
     networks:
       - backend
 
