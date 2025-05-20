@@ -259,3 +259,4 @@ def generar_carnet_pdf(request, alumno_id):
     buffer.seek(0)
 
     return FileResponse(buffer, as_attachment=True, filename='carnet.pdf')
+gi
