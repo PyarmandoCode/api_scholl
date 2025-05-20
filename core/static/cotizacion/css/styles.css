@@ -1,0 +1,529 @@
+.fondo-header {
+  background-color: #17a2b8; 
+}
+
+* { box-sizing: border-box; }
+body {
+  font: 16px Arial;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+input {
+  border: 1px solid transparent;
+  background-color: #e0f7fa;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+textarea {
+  border: 2px solid transparent;
+  background-color: #e0f7fa;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #e0f7fa; /* Celeste claro */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  width: 100%;
+}
+
+#suggestions-list {
+  border: 1px solid #ccc; /* Añade bordes alrededor de la lista */
+  max-height: 300px; /* Establece la altura máxima con un scroll */
+  overflow-y: auto; /* Añade un scroll vertical si es necesario */
+  list-style: none; /* Elimina los estilos de la lista */
+  padding: 0;
+}
+
+#suggestions-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions-list li:hover {
+  background-color: #17a2b8; /* Cambia el color de fondo al pasar el ratón sobre
+   un elemento */
+  color: #f1f1f1;
+}
+
+#suggestions-list li.selected {
+  background-color: #17a2b8; /* Color de fondo para el elemento seleccionado */
+  color: #ffffff; /* Color de texto para el elemento seleccionado */
+}
+
+.oculto {
+  display: none;
+}
+
+.noculto {
+  display: block;
+}
+
+#suggestions-list-cliente {
+  border: 1px solid #ccc; /* Añade bordes alrededor de la lista */
+  max-height: 300px; /* Establece la altura máxima con un scroll */
+  overflow-y: auto; /* Añade un scroll vertical si es necesario */
+  list-style: none; /* Elimina los estilos de la lista */
+  padding: 0;
+}
+
+#suggestions-list-cliente li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions-list-cliente li:hover {
+  background-color: #17a2b8; /* Cambia el color de fondo al pasar el ratón sobre
+   un elemento */
+  color: #f1f1f1;
+}
+
+#suggestions-list-cliente li.selected {
+  background-color: #17a2b8; /* Color de fondo para el elemento seleccionado */
+  color: #ffffff; /* Color de texto para el elemento seleccionado */
+}
+
+textarea {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  min-height: 100px; /* Altura mínima inicial */
+  resize: vertical; /* Permite redimensionar verticalmente */
+  overflow-y: auto; /* Agrega barra de desplazamiento vertical si el contenido es más grande que el textarea */
+}
+
+.flatpickr-time {
+  display: none !important;
+}
+
+/* Estilos personalizados para las opciones del menú */
+.dropdown-menu {
+  min-width: 150px; /* Ancho mínimo del menú desplegable */
+  font-size: 16px; /* Tamaño de fuente para las opciones */
+}
+
+.dropdown-item {
+  padding: 8px 20px; /* Espaciado interno para las opciones */
+  color: #050505; /* Color del texto de las opciones */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #050505; /* Color de fondo al pasar el mouse o enfocar */
+  color: #050505; /* Cambiar el color del texto cuando se pasa el mouse o se enfoca */
+}
+
+tfoot th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+tfoot .subtotal, tfoot .fee, tfoot .total, tfoot .igv, tfoot .grantotal {
+  text-align: right;
+}
+
+tfoot th:last-child {
+  text-align: right;
+}
+
+tfoot th:first-child {
+  text-align: left;
+}
+/* Estilos para el encabezado de totales */
+.header-totales {
+  background-color: #17a2b8; /* Fondo rojo */
+  color: white; /* Texto blanco */
+}
+
+/* Estilos para el pie de página de totales */
+.footer-totales {
+  background-color: #ccc; /* Fondo rojo */
+  color: black; /* Texto blanco */
+}
+
+#datatable-cotizaciones thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-cotizaciones tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-cotizaciones tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+#datatable-cotizacion thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-cotizacion tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-cotizacion tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+#datatable-clientes thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-clientes tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-clientes tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+#datatable-categorias thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-categorias tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-categorias tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+#datatable-proveedores thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-proveedores tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-proveedores tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+#datatable-productos thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+
+/* Estilo para las filas impares */
+#datatable-productos tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-productos tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+.card-header {
+  background-color: #17a2b8; /* Color de fondo deseado */
+  color: white; /* Color de texto */
+  padding: 10px; /* Espacio interno */
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem; /* Ajusta el espaciado interno */
+  font-size: 0.875rem; /* Ajusta el tamaño de fuente */
+  line-height: 1.5; /* Ajusta la altura de línea */
+  background-color: transparent;
+}
+
+.ganancia {
+  color: red;
+}
+
+.pb-33 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#modo {
+  text-align: right;
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid #000;
+  background-color: #17a2b8;
+  color: white;
+  text-align: right;
+}
+
+/* Estilo para los botones */
+.btn-container-delete button {
+  display: inline-block;
+  margin-right: 5px; /* Ajusta el margen según sea necesario */
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: #6c757d; /* Cambia el color del texto para indicar que está deshabilitado */
+  text-decoration: none; /* Elimina cualquier decoración de texto */
+}
+
+.select-btn-size {
+  height: calc(2.25rem + 2px);
+  padding: .75rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+ 
+}
+
+/* Estilo para texto con estado "CREADA" */
+.texto-azul {
+  color: rgb(232, 232, 65);
+}
+
+/* Estilo para texto con estado "APROBADA" */
+.texto-verde {
+  color: green;
+}
+
+/* Estilo para texto con estado "NO APROBADA" */
+.texto-rojo {
+  color: red;
+}
+
+/* Estilo para texto con estado "PAGADA" */
+.texto-celeste {
+  color: green;
+}
+
+/* Estilo para texto con estado "FACTURADA" */
+.texto-lila {
+  color: purple;
+}
+
+
+#datatable-ventas thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-ventas tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-ventas tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+#datatable-compras thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-compras tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-compras tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+
+#datatable-compra thead th {
+  background-color: #17a2b8; /* Color de fondo */
+  color: white; /* Color del texto */
+  /* Otros estilos según sea necesario */
+}
+
+/* Estilo para las filas impares */
+#datatable-compra tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo suave para filas impares */
+}
+
+/* Estilo para las filas pares */
+#datatable-compra tbody tr:nth-child(even) {
+  background-color: #e6e6e6; /* Color de fondo suave para filas pares */
+}
+
+.no-imagen {
+  width: 150px;
+  height: 150px;
+  background-color: #f8d7da; /* Color de fondo para llamar la atención */
+  border: 3px solid #f44336; /* Borde rojo */
+  border-radius: 8px; /* Bordes redondeados */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: shake 0.6s ease-out infinite; /* Efecto de sacudida */
+}
+
+.no-imagen span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f44336; /* Color de texto rojo */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.img-fluid {
+transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+border-radius: 15px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+filter: brightness(0.9);
+border: 5px solid transparent;
+background-image: linear-gradient(45deg, #ff6347, #ff99cc, #99ccff);
+background-origin: border-box;
+background-clip: content-box;
+}
+
+/* Efecto hover */
+.img-fluid:hover {
+transform: scale(1.1); /* Aumenta el tamaño de la imagen al hacer hover */
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombras más pronunciadas */
+filter: brightness(1.1) contrast(1.2); /* Ajusta brillo y contraste al hacer hover */
+border-color: green;
+border-width: 6px; /* Hace más grueso el borde al pasar el mouse */
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+ .toolbar-container {
+    margin-top: 10px; /* Espaciado entre breadcrumb y barra de herramientas */
+  }
+  .toolbar-container .btn {
+    margin-right: 15px; /* Espaciado entre los botones */
+    font-size: 14px; /* Tamaño de la fuente */
+    padding: 5px 15px; /* Reducción del padding */
+    display: flex; /* Flexbox para alinear contenido */
+    justify-content: space-between; /* Asegura que texto e iconos se separen */
+    align-items: center; /* Alineación vertical */
+    min-width: 120px; /* Espacio mínimo para acomodar el texto y el icono */
+  }
+  
+
+/* Estilos personalizados para la tabla */
+/* Estilos personalizados para la tabla */
+#excelTable {
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#excelTable th,
+#excelTable td {
+  padding: 12px;
+  text-align: center;
+}
+
+#excelTable thead {
+  background-color: #17a2b8; /* Fondo verde */
+}
+
+#excelTable thead th {
+  color: white !important; /* Texto blanco */
+  font-weight: bold;
+}
+
+#excelTable tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo alterno para filas */
+}
+
+#excelTable tbody tr:hover {
+  background-color: #e9ecef; /* Color de fondo al pasar el mouse */
+}
+
+#excelTable tbody td {
+  border-top: 1px solid #ddd; /* Borde entre las celdas */
+}
+
+/* Efectos de borde suave */
+#excelTable th, #excelTable td {
+  border-radius: 4px;
+}
+
+.custom-badge {
+  font-size: 1.0rem;  /* Ajusta el tamaño del texto */
+  padding: 0.75em 1.5em;  /* Ajusta el tamaño del fondo */
+}
+
+/* Estilo general para el combo */
+.custom-select {
+  width: 100%; /* Hace que el select ocupe todo el ancho de la columna */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #f8f9fa; /* Color de fondo claro */
+  border: 1px solid #ced4da; /* Borde gris claro */
+  font-size: 1rem; /* Tamaño de fuente */
+  font-weight: 500; /* Peso de fuente */
+  transition: all 0.3s ease; /* Transición suave para interacciones */
+}
+
+/* Estilo al pasar el mouse sobre el combo */
+.custom-select:hover {
+  background-color: #e9ecef; /* Fondo un poco más oscuro al pasar el ratón */
+  border-color: #adb5bd; /* Borde más oscuro */
+}
+
+/* Estilo cuando el select está en foco */
+.custom-select:focus {
+  background-color: #fff; /* Fondo blanco cuando tiene el foco */
+  border-color: #007bff; /* Borde azul para indicar el foco */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra azul alrededor del select */
+}
+
+/* Estilo personalizado para las opciones */
+.custom-select option {
+  padding: 10px; /* Espaciado para las opciones */
+  font-size: 1rem; /* Tamaño de la fuente de las opciones */
+}
+
+/* Estilo responsivo: hacer que el filtro se ajuste en pantallas pequeñas */
+@media (max-width: 768px) {
+  .custom-select {
+      font-size: 0.9rem; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+  }
+}
+
+

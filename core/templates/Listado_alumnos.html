@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% block title %}Listado de Alumnos{% endblock %}
+
+
+{% block content %}
+
+  <!-- Main Content -->
+  <div class="adminx-content">
+    <div class="adminx-main-content">
+      <div class="container-fluid">
+
+        
+        <!-- BreadCrumb -->
+        <nav aria-label="breadcrumb" role="navigation">
+          <ol class="breadcrumb adminx-page-breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index_home' %}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Alumnos</a></li>
+          </ol>
+        </nav>
+        
+        <div class="text-right">
+         <a href="" class="btn btn-lg btn-labeled-right btn-info btn-sm mr-2">
+            <span class="btn-label">
+              <span class="oi oi-arrow-thick-right" aria-hidden="true"></span>
+            </span>
+            <span class="btn-text">
+              Agregar
+            </span>
+          </a> 
+        </div>
+        <br/>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: {% if message.tags == 'error' %}red{% elif message.tags == 'success' %}green{% else %}blue{% endif %};">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            {% endif %}
+            <form method="post" action="{% url 'actualizar_data_secciones' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="archivo" required>
+                <button type="submit">Subir y Actualizar</button>
+            </form>
+        
+        <div class="pb-3">          
+          <h1>Alumnos</h1>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card mb-grid">
+              <div class="table-responsive-md">
+                <table class="table table-actions table-striped table-hover mb-0" id=datatable-alumnos data-table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Item</th>
+                      <th scope="col">Nombres</th>
+                      <th scope="col">Dni</th>
+                      <th scope="col">Grado</th>
+                      <th scope="col">Seccion</th>
+                      <th scope="col">Foto</th>
+                      <th class="center">Opciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                  {% for item in alumnos %}  
+                    <tr id="item-{{item.id}}">
+                      <td> {{ item.id}} </td>
+                      <td>{{item.nombrecompleto}}</td>
+                      <td>{{item.dni}}</td>
+                      <td>{{item.grado}}</td>
+                      <td>{{item.aula}}</td>
+                      <td>
+                        <img 
+                          src="{% if item.foto %}{{ item.foto.url }}{% else %}https://www.gravatar.com/avatar/?d=mp{% endif %}" 
+                          alt="Foto" 
+                          width="50" 
+                          height="50" 
+                          style="object-fit: cover; border-radius: 5px; cursor: pointer;"
+                          onclick="mostrarModal(this.src)">
+                      </td>
+                      
+
+                      <td>
+                        <a href="{% url 'Editar_alumnos' item.id %}" class="btn btn-icon btn-sm mr-2">
+                          <i data-feather="eye"></i>
+                        </a>
+
+                        <button class="btn btn-icon btn-sm mr-2" onClick="">
+                          <i data-feather="trash-2"></i>
+                        </button>
+                        
+                      </td>
+                    </tr>
+                  {% endfor %}   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="modalImagen" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8);">
+    <span onclick="cerrarModal()" style="
+      position:fixed;
+      top:20px;
+      right:30px;
+      color:white;
+      font-size:40px;
+      font-weight:bold;
+      cursor:pointer;
+      z-index:10000;
+      transition: 0.3s;
+    " onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">&times;</span>
+  
+    <img id="imagenModal" style="
+      max-width:80%;
+      max-height:80%;
+      margin:auto;
+      display:block;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      border-radius:15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+      border: 4px solid white;
+    ">
+  </div>
+  </div>
+
+  {% block javascripts %}
+
+<script>
+  $(document).ready(function() {
+    var table = $('[data-table]').DataTable({
+    language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+              },
+              bLengthChange: true,
+              "iDisplayLength": 10,
+              bInfo: true,
+              responsive: true,
+              "bAutoWidth": false,
+              "columns": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                { "orderable": false },
+              ],
+              layout: {
+                topStart: {
+                    buttons: [
+                       {
+                            extend: 'copy',
+                            text: '<i class="fas fa-copy"></i> Copiar', 
+                            
+                            
+                        },
+                        {
+                            extend: 'excelHtml5',
+                            text: '<i class="fas fa-file-excel"></i> Excel',
+                            
+                        },
+                        {
+                          extend: 'pdfHtml5',
+                          text: '<i class="fas fa-file-pdf"></i> PDF',
+                          
+                        },
+                        {
+                          extend: 'colvis',
+                          text: '<i class="fas fa-columns"></i> Ver',
+                          
+                        },
+                    ],
+                    
+                }
+            }
+          });
+    });
+
+function deleteCliente(id) {
+      Swal
+        .fire({
+            title: "Desea Eliminar El Alumno?",
+            text: "Con codigo "+id,
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar",
+        })
+        .then(resultado => {
+            if (resultado.value) {
+              $.ajax({
+                url: "",
+                data: {
+                    'id': id,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.deleted) {
+                      $("#datatable-alumnos #item-" + id).remove();
+                     }
+                    }
+                  });
+            
+            } else {
+                console.log("*NO se elimina el Alumno*");
+            }   
+            })
+        }    
+
+    
+</script> 
+
+<script>
+  function mostrarModal(src) {
+    document.getElementById('imagenModal').src = src;
+    document.getElementById('modalImagen').style.display = 'block';
+  }
+
+  function cerrarModal() {
+    document.getElementById('modalImagen').style.display = 'none';
+  }
+</script>
+
+{% endblock javascripts %}
+
+{% endblock  %}

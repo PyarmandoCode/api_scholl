@@ -9,6 +9,7 @@ import requests
 from io import BytesIO
 from django.core.files.base import ContentFile
 
+
 class Secciones(models.Model):
     Seccion=models.CharField(max_length=100)
     def __str__(self):

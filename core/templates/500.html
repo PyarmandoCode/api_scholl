@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Internal server error</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="/static/cotizacion/css/adminx.css" media="screen" />
+  </head>
+  <body>
+    <div class="adminx-container d-flex justify-content-center align-items-center">
+      <div class="page-error">
+        <div class="error-code">
+          500
+        </div>
+        <h1>Internal Server Error</h1>
+
+        <p class="text-muted mb-5">
+          Algo salió  mal. ¡Lo lamentamos! Intente recargar la página..
+        </p>
+
+        <a href="{% url 'index_home' %}" class="btn btn-primary">Recargar la Pagina</a>
+      </div>
+    </div>
+
+    <!-- If you prefer jQuery these are the required scripts -->
+    <script src="/static/cotizacion/js/jquery-3.2.1.min.js"></script>
+    <script src="/static/cotizacion/js/popper.min.js"></script>
+    <script src="/static/cotizacion/js/bootstrap.min.js"></script> 
+    <script src="/static/cotizacion/js/vendor.js"></script>
+    <script src="/static/cotizacion/js/adminx.js"></script>
+
+    <!-- If you prefer vanilla JS these are the only required scripts -->
+    <!-- script src="../dist/js/vendor.js"></script>
+    <script src="../dist/js/adminx.vanilla.js"></script-->
+  </body>
+</html>
